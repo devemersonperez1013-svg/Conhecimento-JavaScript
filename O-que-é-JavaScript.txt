@@ -1,0 +1,18 @@
+O JavaScript é uma linguagem de programação criado em 1995
+Originalmente, o seu objetivo era trazer interatividade nas páginas web
+A sua facilidade e versalitade, é melhor e amigavel com os iniciantes, não só como ferramenta para dar alma para os sites, mas se tornando como ferramenta de construçao de servidores
+
+Conforme a evoluçao da linguagem, houve muitas atualizações e modificações, mas com a criação do ECMAScript, padronizou tudo, trazendo melhorias e funcionalidades novas.
+O Node.Js, criado em 2009, foi especial para o javascript, pois se tornou uma ferramenta fora dos navegadores, trazendo desenvolvimento para o back-end.
+
+Sua tipagem é interessante, porque armazena varios tipos de dados e mudar também os seus ao mesmo tempo de execução. O que traz uma flexibilidade maior
+Porém, com alto cuidado na compreensão dos conceitos escritos
+
+Conforme o tempo, se incorporou como programação funcional e orientado a objetos, tendo como:
+-Clousers;
+-Funções de alta ordem;
+-Promessas assincrona;
+-Classes;
+-Modulos.
+
+JavaScript é um ferramenta, capaz de adicionar efeitos, até funcionalidades. Uma linguagem robusta, e capaz de construir sistemas complexos
