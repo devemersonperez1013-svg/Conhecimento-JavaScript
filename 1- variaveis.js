@@ -73,13 +73,3 @@ let linguagens = ["JavaScript", "Python", "Ruby"]
 // Symbol: Raramente usado, mas funciona. É um identificador único, algo que não muito usado para iniciantes
 let id = Symbol('id')
 
-
-// +++Exercicios+++
-// Crie 3 variaveis contendo: seu nome, sua idade, comida favorita. E depois utilize console.log para sair a resposta
-const Nome = "Emerson"
-let Idade = 22
-let comidaFavorita = "Bife à cavalo"
-
-console.log("Meu nome é " + Nome)
-console.log("tenho " + Idade + " anos")
-console.log("Minha comida favorita é " + comidaFavorita)
