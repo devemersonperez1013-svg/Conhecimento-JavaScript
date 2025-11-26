@@ -67,3 +67,47 @@ numeros.forEach(num=> console.log(num))
 // Filtrar pares
 let pares = numeros.filter(num=> num % 2 === 0)
 console.log(pares)
+
+// ----Exercicio-----
+// 1. Crie um loop que vá de 0 a 10
+for (let i = 0; i < 11; i++) {
+    console.log(i)   
+}
+
+// 2. Crie um loop for que imprima somente numeros impares de 0 a 20
+for (let i = 0; i < 21; i++) {
+    if (i % 2 === 1) {
+        console.log(i)
+    }   
+}
+
+// 3. Crie um loop while que imprima numeros de 0 a 10
+let num = 0
+while (num < 11) {
+    console.log(num); num++
+}
+
+// 4. Crie loop for que imprima numeros de 0 a 100, mas que interrompa a execução quando chegar ao número 50
+for (let i = 0; i < 101; i++) {
+    if (i === 51) {
+        break
+    }
+    console.log(i)
+}
+
+// 5. Crie um loop for que imprima numeros de 0 a 20, mas que pule a impressao do numero 13
+for (let i = 0; i < 21; i++) {
+    if (i === 13) {
+        continue
+    }
+    console.log(i)
+}
+
+// 6. Crie um array de nomes e use um loop for...of para imprimir cada nome do array
+let names = ["Ana", "Paulo", "Marcos"]
+for (let name of names) {
+    console.log(name)
+}
+
+// Com forEach. Recomendado ->
+names.forEach(name => console.log(name))
