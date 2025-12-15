@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora simples</title>
+</head>
+<body>
+    <script>
+        // Calcuradora Simples
+// Criando funções aritmeticas
+
+// Adição
+const adicao = (n1, n2) => n1 + n2
+
+// Subtração
+const subtracao = (n1, n2) => n1 - n2
+
+// Multiplicação
+const multiplicacao = (n1, n2) => n1 * n2
+
+// Divisão
+const divisao= (n1, n2) => n1 / n2
+
+console.log("=========================")
+console.log("   Calculadora Simples   ")
+console.log("=========================")
+
+const escolha = parseInt(prompt("Escolha uma das opções abaixo para escolher o calculo: \n 1. Adição \n 2. Subtração \n 3. Multiplicação \n 4. Divisão \n 5. Sair do programa"))
+
+if (escolha >= 1 && escolha <= 4) {
+    let numero1 = parseFloat(prompt("Digite o primeiro número "))
+    let numero2 = parseFloat(prompt("Digite o segundo número"))
+
+    let resultado
+
+    switch (escolha) {
+        case 1:
+            resultado = adicao(numero1, numero2)
+            console.log(`O resultado dos números ${numero1}, ${numero2} é ${resultado}.`)
+            break;
+        case 2:
+            resultado = subtracao(numero1, numero2)
+            console.log(`O resultado dos números ${numero1}, ${numero2} é ${resultado}.`)
+            break;
+        case 3:
+            resultado = multiplicacao(numero1, numero2)
+            console.log(`O resultado dos números ${numero1}, ${numero2} é ${resultado}.`)
+            break;
+        case 4:
+            // Verificando a divisão por zero
+            if (numero2 === 0) {
+                console.log("Erro ao tentar dvidir por zero")
+                
+            } else {
+                resultado = divisao(numero1, numero2)
+                console.log(`O resultado dos números ${numero1}, ${numero2} é ${resultado}.`)
+            }
+            break;
+        default:
+            break;
+    }
+} else if (escolha === 5) {
+    console.log("Saindo do programa...")
+} else {
+    console.log("Erro na escolha das opções, tente novamente")
+}
+    </script>
+</body>
+</html>
