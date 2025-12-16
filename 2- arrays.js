@@ -34,7 +34,7 @@ series.unshift("The Witcher")
 
 // Aletrando Elementos arrays: Se quer modificar algum item da lista, é so declarar o indice e trocar
 let games = ["FIFA", "Call of Duty", "Minecraft"]
-games[0] = "FIFA 24"
+// games[0] = "FIFA 24"
 // Agora a "FIFA" virou "FIFA 24"
 
 // Length: Para saber quantos elementos existem na lista, usa length
@@ -55,7 +55,7 @@ animais.push("Leão", "Macaco", "Elefante")
 animais.shift()
 // console.log(animais)
 
-// 3. Insirindo Elementos no Inicio do Array
+// 3. Insirindo Elementos no inicio do Array
 animais.unshift("Girafa", "Tigre")
 // console.log(animais)
 
@@ -74,6 +74,8 @@ for (let i = 0; i < frutas.length; i++) {
 }
 // ---//---
 
+// Exercicio 7
+// Crie uma array contenha numeros, e soma entre eles
 const numeros = [2, 5, 8, 3]
 let soma = 0
 
@@ -84,8 +86,10 @@ for (let n of numeros) {
     console.log(soma)
 }
 
-let valores = [4, 11, 32, 9, 15]
-const resultado = valores.filter(valores => valores > 17)
+// Exercicio 8
+// Crie um array que contenha numeros, e faça uma filtração de quais dele é maior que 17
+let valores = [4, 11, 32, 9, 15] // Exemplo
+const resultado = valores.filter(valores => valores > 17) // Arrow Function
 console.log(resultado)
 
 // let nums = [1, 2, 3, 4, 5, 6]
