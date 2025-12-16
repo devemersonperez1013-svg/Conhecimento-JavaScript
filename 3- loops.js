@@ -1,6 +1,6 @@
-// Bloco de c'odigo de repetição sob determinadas condições
+// Bloco de codigo de repetição sob determinadas condições
 // O que é Loops?
-/* Lopps é um bloco de código com uma condição especifica é atendida.
+/* Loops é um bloco de código com uma condição especifica é atendida.
 No JavaScript, temos vários desse tipo com usos especificos */
 // Por que usamos Loops?
 /* Usamos para tarefas repetitivas sem escrever o mesmo código várias vezes.
