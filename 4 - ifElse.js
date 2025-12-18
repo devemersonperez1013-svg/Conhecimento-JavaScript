@@ -80,11 +80,11 @@ let x = "10";
 console.log(x == 10); // true (compara apenas o valor)
 console.log(x === 10); // false (compara valor e tipo)
 
-// Operadores lõgicos
+// Operadores lógicos
 // Isso combina com multiplas condicões:
 /* 
 && (E/And) -> Todas condições devem ser verdadeiras
-|| (Ou/Or) -> Pelo menos uma condiçãp deve ser verdadeira
+|| (Ou/Or) -> Pelo menos uma condição deve ser verdadeira
 ! (Não/Not) -> Inverte o valor booleano
 */
 
@@ -132,7 +132,7 @@ adolescente (13 - 17 anos), adulto (18 - 64 anos) e idoso (> 65 anos), use if/el
 */
 let idadePessoa = 30;
 
-if (idadePessoa <= 13) {
+if (idadePessoa < 13) {
   console.log("Você é criança!");
 } else if (idadePessoa >= 13 && idadePessoa <= 17) {
   console.log("Você é adolescente!");
