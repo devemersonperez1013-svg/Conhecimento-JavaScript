@@ -15,9 +15,15 @@ console.log(exemploLet) // Não vai funcionar essa chamada, pois não conhece o 
 
 // const é uma constante, mais firme do que seu irmão. Uma vez que dá o valor para ele, não pode mudar mais.
 // O ideal é usa-lo nos valores que não precisa de modificação, e que sejam apenas constantes.
-// Exemplo:
+// Primeiro Exemplo:
 const exemploConst = "Sou firmeza, não mudo"
 exemploConst = "Vou tentar mudar" // Nesse caso não muda mesmo, vai dar Erro!
+// Pórem, há outro jeito de modificar o const
+const pessoa_1 = { nome: 'Joao'}
+pessoa_1.nome = 'Maria'
+pessoa_1.idade = 25
+// Porque isso acontece? Ela não permite a REATRIBUIÇÃO de variável, mas não impede a modificação
+// Como objeto/arrays. É como se fosse uma caixa fechada, porém pode mexer dentro dela.
 
 // Nomemclatura de variaveis
 // Não funciona ao declarar na variavel, como: let 1nome -> não vai dar certo; 
@@ -35,8 +41,8 @@ let meuSonho = "desse jeito pode"
 // 1. let if = "não pode usar";
 // 2. let let = "isso aqui vai dar erro...";
 
-// No Case Sensitive, duas variaveis com o mesmo nome pode gerar erro, mas...
-// se uma delas tiver uma letra maiscula em qualquer palavra, o javascript entende que é uma variavel diferente da outra
+// No Case Sensitive, Se ambos terem o mesmo nome, mas com pequena diferença, como uma letra Maiuscula
+// O Javascript entende que é outra variavel e não igual
 // Exemplo:
 let vidaDeDev = "uma"
 let VidaDeDev = "outra"
@@ -55,10 +61,10 @@ let amoCodar = true
 let odeioCodar = false
 
 // Undefined: É um tipo de varivel que não tem valor, o que torna ela indefinida
-let vazio; console.log(vazio); // Vai mostar 'undefined'
+let vazio; console.log(vazio); // Javascript deixa undefined automaticamente
 
 // Null: Similar ao outro, mas deixa a claro que não passa nenhum valor
-let semValor = null; // Não imprime nada
+let semValor = null; // Imprimi o vazio proposital
 
 // Object: É uma coleção de dados digamos assim, o pacote chamado "pessoa" contém nome, idade, e limguagem favorita, com seus respectivos valores declarados
 let pessoa = {
