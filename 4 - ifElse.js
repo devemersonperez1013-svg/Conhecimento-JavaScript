@@ -125,6 +125,21 @@ if (numero >= 18){
 } 
 */
 
+// OBS: Em código extenso funciona, mas já fica confuso:
+// let status = idade < 13 ? "Criança" 
+//            : idade < 18 ? "Adolescente" 
+//            : "Adulto"
+
+// Melhor usar if/else quando tem 3+ condições:
+// let status
+// if (idade < 13) {
+//   status = "Criança"
+// } else if (idade < 18) {
+//   status = "Adolescente"
+// } else {
+//   status = "Adulto"
+// }
+
 // ++++++++ Exercicios ++++++++++
 /* 
 1. Classisficação por idade: O programa classifica pessoa entre criança (13 anos), 
