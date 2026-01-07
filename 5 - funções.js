@@ -31,8 +31,8 @@ espera receber. Já os argumentos, são valores reais passados para a função *
 function saudar(nome) {
     console.log("Olá " + nome)
 }
-saudar("Cauê")
-/* O nome é um parâmetro, e Cauê é um argumento. A função saudar pega esse argumento e 
+saudar("Emerson")
+/* O "nome" é um parâmetro, e "Emerson" é um argumento. A função saudar pega esse argumento e 
 usa no lugar do parâmetro */ 
 
 // Arrow Functions
@@ -42,7 +42,37 @@ São especialmente úteis para funções anônimas e curtas. */
 let soma = (a, b) => a + b
 let resultadoA = soma(5, 3)
 console.log(resultadoA)
-// Nesse novo tipo de função, não é necessario usar o return!
+// Nesse novo tipo de função, não é necessario usar o return! 
+// Ao menos que você coloque isso"{}", aí sim precisa
+// Exemplo
+// let soma = (a, b) => {
+//     return a + b  // Precisa do return!
+// }
+
+// Nem toda função retorna algo:
+// Função que SÓ executa ação (sem return):
+function saudar(nome) {
+    console.log(`Olá, ${nome}!`)
+    // Não tem return!
+}
+
+saudar("João")  // Imprime: Olá, João!
+let resultadoB = saudar("João")  // resultadoB = undefined
+
+// Clareando sobre variáveis em funções:
+function exemplo() {
+    let dentroFuncao = "Só existo aqui"
+    console.log(dentroFuncao)  // Funciona
+}
+
+console.log(dentroFuncao)  // Erro! Variável não existe aqui
+
+// Mas variáveis de fora podem ser acessadas dentro:
+let global = "Eu sou global"
+
+function mostrar() {
+    console.log(global)  // Funciona!
+}
 
 // ++++++ Exercicio ++++++
 // 1. Crie uma função que calcula a área de um retangulo dado largura e altura
@@ -97,5 +127,17 @@ console.log(maiuscMinusc("SINUCA"))
 
 let multiplicaPorDez = num1 => num1 * 10
 console.log(multiplicaPorDez(5))
-// OBS: A colocação dos parênteses so pode por quando há mais de um parâmetro!
-// - Exenplo: let multiplicadoPorDez = (num1, num2, num3, num...)
+// OBS: A colocação dos parênteses so pode por quando há mais de um parâmetro ou sem!
+// - Exenplo: let dizerOi = () => "Oi!"; let soma = (a, b) => a + b
+
+// Forma mais simplificada de uma função simples com o operador ternário:
+let ehMaiorDeIdade = idade => idade >= 18 ? "Maior de idade" : "Menor idade"
+
+// O comum:
+// let ehMaiorDeIdade = idade => {
+//     if (idade >= 18) {
+//         return "Maior de idade"
+//     } else {
+//         return "Menor de idade"
+//     }
+// }
