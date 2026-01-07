@@ -14,7 +14,7 @@ let filmes = new Array("Pulp Fiction", "Clube da Luta", "Matrix")
 let primeiroSerie = series[0]
 // Breaking Bad
 let filmeInexistente = filmes[-1]
-// undefined, isso vai dar erro!
+// undefined, porque não retorna nada na array
 
 // O numero 0 representa a primeira gaveta, onde está armazenado o Breaking Bad
 // Os arrays sempre começam no indice 0, ou seja, o primeiro da lista será o item 0!
@@ -34,16 +34,28 @@ series.unshift("The Witcher")
 
 // Aletrando Elementos arrays: Se quer modificar algum item da lista, é so declarar o indice e trocar
 let games = ["FIFA", "Call of Duty", "Minecraft"]
-// games[0] = "FIFA 24"
+games[0] = "FIFA 24"
 // Agora a "FIFA" virou "FIFA 24"
 
 // Length: Para saber quantos elementos existem na lista, usa length
-// let totalSeries = series.length
+let totalSeries = series.length
 
-// Percorrendo um arrays com Loop:
+// Para saber o ultimo número sem o uso do for, apenas usando length, faz isso:
+let frutasDoces = ["Maçã", "Banana", "Manga"]
+// let ultimaFruta = frutasDoces[frutasDoces.length - 1]
+let ultimaFruta = frutasDoces.at(-1)
+console.log(ultimaFruta)
+
+// 1. Percorrendo um arrays com Loop através do índice:
 for (let i = 0; i < games.length; i++) {
     console.log(games[i])
 }
+
+// 1. For... of tem o valor direto
+for (const game of games) {
+    console.log(game)
+}
+
 
 // Exercicios
 // 1. Adicione elementos arrays
@@ -83,21 +95,19 @@ let soma = 0
 console.log(somaNumeros)*/
 for (let n of numeros) {
     soma += n
-    console.log(soma)
 }
+console.log(soma)
 
 // Exercicio 8
 // Crie um array que contenha numeros, e faça uma filtração de quais dele é maior que 17
 let valores = [4, 11, 32, 9, 15] // Exemplo
 const resultado = valores.filter(valores => valores > 17) // Arrow Function
 console.log(resultado)
-
-// let nums = [1, 2, 3, 4, 5, 6]
-
-// if (nums % 2) {
-//     console.log(nums) 
-// }
-
-// let lista = [17, 8, 23, 4, 29]
-// const maiorNumero = lista.filter(lista => lista > 28)
-// console.log(maiorNumero)
+// Explicando: O "filter" testa cada número
+// Se for "true", ele inclui no novo array
+// Vejamos:
+// 4>17 == false
+// 11>17 == false
+// 32>17 == true
+// 9>17 == false
+// 15>17 == false

@@ -17,18 +17,18 @@ for (let i = 0; i < 10; i++) {
 // Loop while: 
 /* Se usa em momentos que você está naquele "vou ver o que acontece". 
 Mas cuidado ao usar, se esquecer um comando, pode "explodir o pc" de tanto código que vai gerar */ 
-// let i = 0
-while (i < 10) {
-    console.log(i); i++
+let j = 0
+while (j < 10) {
+    console.log(j); j++
 }
 
 // Loop do... while
 /* Parecido com o while, mas a diferença é que ele executada pelo menos uma vez, mas
 mesmo que a condição seja falsa */ 
-let i = 0
+let k = 0
 do {
-    console.log(i); i++;
-} while (i < 10);
+    console.log(k); k++;
+} while (k < 10);
 
 // Loop for...of:
 /* Isso aqui é usado quando você tem um array ou algo iterável e quer passar por cada elemento dele */ 
@@ -57,6 +57,16 @@ for (let i = 0; i < 10; i++) {
 
     console.log(i)
 }
+// Abrangindo a explicação:
+/*
+i=0: é par → continue (pula)
+i=1: ímpar → imprime 1
+i=2: é par → continue (pula)
+i=3: ímpar → imprime 3
+i=4: é par → continue (pula)
+i=5: break → sai do loop completamente
+Nunca chega em 6, 7, 8, 9 por causa do break no 5!
+*/
 
 // +++++ Metodos modernos de array, usando loops
 // Loop forEach
@@ -67,6 +77,18 @@ numeros.forEach(num=> console.log(num))
 // Filtrar pares
 let pares = numeros.filter(num=> num % 2 === 0)
 console.log(pares)
+
+// ========================
+// QUANDO USAR CADA LOOP?
+// ========================
+/*
+for -> Sabe quantas vezes vai repetir
+while -> Não sabe quantas vezes vai repetir
+do...while -> Precisa executar pelo menos 1 vez
+for...of -> Percorrer arrays (valores)
+for...in -> Percorrer objetos (chaves)
+forEach -> Percorrer arrays (modo moderno)
+*/
 
 // ----Exercicio-----
 // 1. Crie um loop que vá de 0 a 10
@@ -89,7 +111,7 @@ while (num < 11) {
 
 // 4. Crie loop for que imprima numeros de 0 a 100, mas que interrompa a execução quando chegar ao número 50
 for (let i = 0; i < 101; i++) {
-    if (i === 51) {
+    if (i === 50) {
         break
     }
     console.log(i)
