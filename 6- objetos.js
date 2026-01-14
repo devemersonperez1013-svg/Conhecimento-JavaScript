@@ -1,8 +1,4 @@
 // ========================================
-// GUIA COMPLETO: OBJETOS EM JAVASCRIPT
-// ========================================
-
-// ========================================
 // 1. O QUE SÃO OBJETOS?
 // ========================================
 /*
@@ -16,7 +12,7 @@ let pessoa1 = {
     nome: "Emerson",
     idade: 22,
     falar: function() {
-        console.log(`Oi, meu nome é ${this.nome}`)
+        console.log(`Oi, meu nome é ${this.nome}`) // this -> "Emerson"
     }
 }
 
@@ -247,3 +243,11 @@ let pessoa3 = {
 
 pessoa1.falar()  // "Oi, meu nome é Emerson"
 pessoa3.falar()  // "Oi, meu nome é Maria"
+
+
+let carro1 = { marca: "Fiat" }
+let carro2 = carro1
+let carro3 = { marca: "Fiat" }
+
+console.log(carro1 === carro2)
+console.log(carro1 === carro3)
