@@ -1,0 +1,119 @@
+<!-- 1. INTRODUÇÃO AO DOM -->
+<!-- Com Javascript podemos aceessar e manipular os nós do DOM. -->
+
+<!-- 2. O QUE É DOM? -->
+<!-- O DOM é uma interface de programação que permite que scripts acessem e
+atualizem o conteúdo, a estrutura e o estilo de documentos HTML. Quando um
+navegador carrega uma página web, ele cria uma representação do documento
+como um objeto DOM, que pode ser manipulado por linguagens de script como
+JavaScript -->
+
+<!-- 3. ESTRUTURA DO DOM -->
+<!-- A estrutura do DOM é hierárquica, com um único nó raiz representando o
+documento completo. Abaixo do nó raiz, cada elemento HTML, atributo e texto é
+representado como um nó separado -->
+<!-- Exemplo: -->
+<!-- 
+html
+    head
+        title
+            #text : "Minha Página"
+body
+    h1
+        #text : "Bem-vindo"
+    p
+        #text : "Este é um parágrafo."
+ -->
+
+<!-- 4. SELECIONANDO ELEMENTOS -->
+<!-- Com JavaScript, temos várias maneiras de selecionar e
+manipular esses elementos. Vamos explorar diferentes métodos de seleção de
+elementos e aprender como usá-los de maneira eficaz.  -->
+
+<!-- 4.1 Selecionando Elementos pelo ID. -->
+<!-- Os IDs devem ser únicos dentro de uma página HTML -->
+<!doctype html>
+<html>
+  <head>
+    <title>Exemplo de Seleção por ID</title>
+  </head>
+  <body>
+    <h1 id="titulo">Bem-vindo</h1>
+    <script>
+      let titulo = document.getElementById("titulo");
+      console.log(titulo); // <h1 id="titulo">Bem-vindo</h1>
+    </script>
+  </body>
+</html>
+<!-- Explicação -->
+<!-- + document.getElementById("titulo"): Seleciona o elemento co o ID "titulo" -->
+
+<!-- 4.2 Selecionando Elementos pela Classe -->
+<!-- Se você quiser selecionar vários elementos que compartilham a mesma classe,
+use getElementsByClassName . Isso retorna uma coleção de todos os elementos que
+possuem a classe especificada -->
+<!doctype html>
+<html>
+  <head>
+    <title>Exemplo de Seleção por Classe</title>
+  </head>
+  <body>
+    <p class="texto">Parágrafo 1</p>
+    <p class="texto">Parágrafo 2</p>
+    <script>
+      let paragrafos = document.getElementsByClassName("texto");
+      console.log(paragrafos); // HTMLCollection [ <p.texto>, <p.texto> ]
+    </script>
+  </body>
+</html>
+<!-- Explicação: -->
+<!-- + document.getElementsByClassName('texto'): Seleciona todos os elementos com a
+classe "texto". -->
+
+<!-- 4.3 Selecionando Elementos pela Tag -->
+<!-- Para selecionar todas as tags, use getElementsByTagNmae -->
+<!doctype html>
+<html>
+  <head>
+    <title>Exemplo de Seleção por Tag</title>
+  </head>
+  <body>
+    <p>Parágrafo 1</p>
+    <p>Parágrafo 2</p>
+    <script>
+      let todosParagrafos = document.getElementsByTagName("p");
+      console.log(todosParagrafos); // HTMLCollection [ <p>, <p> ]
+    </script>
+  </body>
+</html>
+<!-- Explicação: -->
+<!-- + document.getElementsByTagName('p'): Seleciona todos os elementos <p> -->
+
+<!-- 4.4 Selecionando Elementos com Query Selector -->
+<!-- Os métodos querySelector e querySelectorAll oferecem uma maneira mais flexível de
+selecionar elementos, permitindo usar seletores CSS. -->
+<!doctype html>
+<html>
+  <head>
+    <title>Query Selector</title>
+  </head>
+  <body>
+    <p class="texto">Parágrafo 1</p>
+    <p class="texto">Parágrafo 2</p>
+    <script>
+       // Seleciona o primeiro elemento que corresponde ao seletor CSS
+       let primeiroParagrafo = document.querySelector('.texto');
+       console.log(primeiroParagrafo); // <p class="texto">Parágrafo 1</p>
+       // Seleciona todos os elementos que correspondem ao seletor CSS
+       let allParagrafos = document.querySelectorAll('.texto');
+       console.log(allParagrafos); // NodeList [ <p.texto>, <p.texto> ]
+    </script>
+  </body>
+</html>
+<!-- Explicação: -->
+<!-- 
+    document.querySelector('.texto') : Seleciona o primeiro elemento que corresponde
+        ao seletor CSS ".texto".
+    document.querySelectorAll('.texto') : Seleciona todos os elementos que
+        correspondem ao seletor CSS ".texto".
+-->

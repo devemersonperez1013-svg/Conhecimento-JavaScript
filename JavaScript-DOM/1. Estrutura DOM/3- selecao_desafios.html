@@ -1,0 +1,67 @@
+<!-- 1. Crie um arquivo chamado selecao_desafios.html e selecione um elemento pelo
+ID, modifique seu conteúdo e exiba o resultado no console.  -->
+<!-- 2. Selecione todos os elementos com uma classe específica e modifique seu
+estilo (por exemplo, altere a cor do texto).  -->
+<!-- 3. Use querySelector para selecionar um elemento específico e adicione uma
+nova classe a ele -->
+<!-- 4. Use querySelectorAll para selecionar todos os elementos de uma tag
+específica e altere seu conteúdo. -->
+<!-- 5. Combine seletores CSS em querySelector para selecionar elementos de
+maneira mais precisa (por exemplo, selecione um elemento com uma classe
+específica dentro de um determinado ID) -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de desafios</title>
+</head>
+<body>
+    <!-- 1. -->
+    <h2 id="subtitulo">Subtitulo</h2>
+
+    <!-- 2 -->
+    <p class="paragrafo">lorem5</p>
+    <p class="paragrafo">lorem5</p>
+    <p class="paragrafo">lorem5</p>
+
+    <!-- 3 -->
+    <p class="antiga">lorem12</p>
+    
+    <!-- 4 -->
+    <p>Lorem, ipsum dolor.</p>
+    <p>Lorem ipsum dolor sit.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <!-- 5 -->
+    <div id="caixa">
+        <p class="texto">Textão</p>
+    </div>
+
+    <script>
+        // 1
+        let subTitulo = document.getElementById('subtitulo')
+        console.log(subTitulo)
+
+        // 2
+        document.querySelectorAll(".paragrafo").forEach(elem => {
+            elem.style.color = "red"
+        });
+
+        // 3
+        // let classeAntiga = document.querySelector(".antiga")
+        // classeAntiga.classList.replace("antiga", "nova")
+        let classeantiga = document.querySelector(".antiga").classList.add("nova")
+
+        // 4
+        document.querySelectorAll("p").forEach(ele => {
+            ele.textContent = "Novo Texto"
+        });
+
+        // 5
+        // let textoSelecionado = document.querySelector(".texto")
+        let textoSelecionado = document.querySelector("#caixa .texto")
+        console.log(textoSelecionado)
+    </script>
+</body>
+</html>

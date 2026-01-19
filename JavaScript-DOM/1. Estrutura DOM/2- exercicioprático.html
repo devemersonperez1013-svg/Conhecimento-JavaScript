@@ -1,0 +1,49 @@
+<!-- Vamos praticar a seleção de elementos do DOM em JavaScript. 
+Crie arquivos HTML e adicione o seguinte código: -->
+
+<!-- Selecionando Elementos pelo ID -->
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seleção pelo ID, Classe, Tag, e Querys</title>
+  </head>
+  <body>
+    <!-- Selecionando pelo ID -->
+    <h1 id="titulo">Bem-vindo</h1>
+
+    <!-- Selecionando pela Classe -->
+    <p class="texto">Parágrafo 1</p>
+    <p class="texto">Parágrafo 2</p>
+
+    <!-- Selecionando pela Tag -->
+    <p>Parágrafo 1</p>
+    <p>Parágrafo 2</p>
+
+    <!-- Selecionando pelo Query Selector -->
+    <p class="text">Parágrafo 1</p>
+    <p class="text">Parágrafo 2</p>
+    
+    <script>
+      // ID
+      let titulo = document.getElementById("titulo");
+      console.log(titulo);
+
+      // Class
+      let paragrafos = document.getElementsByClassName("texto");
+      console.log(paragrafos);
+
+      // Tag
+      let todosParagrafos = document.getElementsByTagName("p");
+      console.log(todosParagrafos);
+
+      // querySelector e querySelectorAll
+      let primeiroParagrafo = document.querySelector('.text')
+      console.log(primeiroParagrafo)
+      
+      let allParagrafos = document.querySelectorAll('.text')
+      console.log(allParagrafos)
+    </script>
+  </body>
+</html>
