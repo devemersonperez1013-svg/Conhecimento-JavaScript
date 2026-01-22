@@ -1,0 +1,138 @@
+<!-- 1. Crie arquivo e depois, adicione um EventListener a um botão que 
+ altera o texto de um parágrafo ao ser clicado -->
+<!-- 2. Adicione Event Listeners para mouseover e mouseout em uma imagem,
+alterando seu estilo ao passar o mouse sobre ela e ao sair -->
+<!-- 3. Crie um campo de texto que exiba a contagem de caracteres digitados em
+tempo real usando os eventos keydown e keyup . -->
+<!-- 4. Implemente um botão que adiciona e remove uma classe de um parágrafo,
+alternando seu estilo ao ser clicado.  -->
+<!-- 5. Combine vários eventos para criar uma interatividade mais complexa, como
+um formulário que exibe uma mensagem de sucesso ao ser enviado, com
+validação dos campos -->
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventos Interatividade</title>
+    <style>
+      /* Ex: 4 */
+      .classe1 {
+        background-color: rgb(16, 16, 63);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Ex: 1 -->
+    <p id="texto">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus!
+    </p>
+    <button id="btnTexto">Clique para alterar</button>
+    <hr />
+
+    <!-- Ex: 2 -->
+    <img
+      src="https://play-lh.googleusercontent.com/UGAXxYwFj1lrzt2EcihAe2vRT0WcYPGDUjiUzOoaEIh_Pk8_NxAFVI8cwKDbvTXLw3YN"
+      alt="Sonic"
+      id="imgInterativo"
+    />
+    <hr />
+
+    <!-- Ex: 3 -->
+    <p>Contagem de caracteres presionadas:</p>
+    <input type="text" id="campoTexto" placeholder="Digite algo..." />
+    <p id="totalDemo"></p>
+    <hr />
+    <!-- Ex: 4 -->
+    <p id="paragrafo">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+    <button id="btnEstilizador">Clique aqui!</button>
+    <hr />
+
+    <!-- 5 -->
+    <h3>Formulário interativo</h3>
+    <form id="formulario">
+      <label for="">Name:</label>
+      <input type="text" name="nome" id="campoNome" required />
+      <br />
+      <label for="">Email:</label>
+      <input type="email" name="email" id="campoEmail" required />
+      <br />
+      <button type="submit">Enviar</button>
+      <p id="demostracao"></p>
+    </form>
+    <script>
+      // 1
+      const pTexto = document.getElementById("texto");
+      const btnTexto = document.getElementById("btnTexto");
+
+      btnTexto.addEventListener("click", function () {
+        pTexto.textContent = "Esse texto foi alterado pelo botão!";
+      });
+
+      // 2
+      const imgInterativo = document.getElementById("imgInterativo");
+
+      imgInterativo.addEventListener("mouseover", function () {
+        imgInterativo.style.borderRadius = "50%";
+        imgInterativo.style.width = "500px";
+        imgInterativo.style.height = "500px";
+      });
+
+      imgInterativo.addEventListener("mouseout", function () {
+        imgInterativo.style.borderRadius = "5%";
+        imgInterativo.style.width = "500px";
+        imgInterativo.style.height = "500px";
+      });
+
+      // 3
+      const campoTextoDemo = document.getElementById("campoTexto");
+      const totalDemo = document.getElementById("totalDemo");
+
+      campoTextoDemo.addEventListener("keyup", function (event) {
+        totalDemo.innerHTML = event.target.value.length;
+      });
+
+      // 4
+      const paragrafo = document.getElementById("paragrafo");
+      const btnEstilizador = document.getElementById("btnEstilizador");
+
+      btnEstilizador.addEventListener("click", function () {
+        paragrafo.classList.toggle("classe1");
+      });
+
+      // 5
+      let form = document.getElementById("formulario");
+      let campoNome = document.getElementById("campoNome");
+      let campoEmail = document.getElementById("campoEmail");
+      let pDemostracao = document.getElementById("demostracao");
+
+      //Usamos preventDefault para que a página não recarregue
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Validamos caso o sujeito não preencha os campos
+        if (campoNome.value.trim() === "" || campoEmail.value.trim() === "") {
+          pDemostracao.textContent = "Por favor, preencha os campos";
+          pDemostracao.style.color = "red";
+          return;
+        }
+
+        // Validamos o email (simples)
+        if (!campoEmail.value.includes("@")) {
+          pDemostracao.textContent = "Email inválido";
+          pDemostracao.style.color = "red";
+          return;
+        }
+
+        // Mostramos a mensagem de sucesso
+        pDemostracao.textContent = "Formulario enviado com sucesso!";
+        pDemostracao.style.color = "green";
+
+        // Limpar os campos
+        campoNome.value = "";
+        campoEmail.value = "";
+      });
+    </script>
+  </body>
+</html>
