@@ -1,0 +1,69 @@
+<!-- Agora iremos práticar do que aprendemos: -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modificando Conteúdo de Texto</title>
+  </head>
+  <body>
+    <!-- 1. Modifique o conteúdo de texto e HTML de um elemento -->
+    <h1 id="titulo">Seja bem-vindo!</h1>
+    <p id="texto">Lorem ipsum dolor sit.</p>
+    
+    <!-- 2. Modifique atributos de uma imagem, alterando o src e alt e exiba o resultado no console -->
+    <img src="imagem1.jpeg" alt="Imagem 1" id="imgModificada">
+
+    <!-- 3. Adicione estilos de um elemento usando a propriedade style
+     como cor de fundo, cor de texto e tamanho da fonte -->
+    <p id="estilo">Mude o estilo</p>
+
+    <!-- 4. Crie uma função que adicione uma classe a um elemento ao clicar em um
+      botão e remova a classe ao clicar novamente (usando classList.toggle ). -->
+    <button id="botao">Clique para mudar a classe</button>
+
+    <!-- 5. Combinando várias manipulações -->
+    <p id="paragrafo">Clique no botão abaixo, para mudar este parágrafo</p>
+    <br>
+    <button id="btnMudarParagrafo">Clique Aqui</button>
+    
+    <script>
+      //1. innerHTML and TextContent
+      document.getElementById("titulo").innerHTML = "Este titulo foi <strong>modificado!</strong>";
+      document.getElementById("texto").textContent = "Este texto aqui foi alterado!";
+
+      //2. setAttribute and getAttribute
+      let imagemModificada = document.getElementById('imgModificada')
+      imagemModificada.setAttribute('src', 'imagem2.jpg')
+      imagemModificada.setAttribute('alt', 'Paisagem')
+      console.log(imagemModificada)
+
+      // 3. Add, removendo estilos
+      let mudandoEstilo = document.getElementById('estilo')
+      mudandoEstilo.style.backgroundColor = "yellow"
+      mudandoEstilo.style.color = "black"
+      mudandoEstilo.style.fontSize = "30px"
+      
+      // 4. Mudando classe
+      let modificandoBtn = document.getElementById('botao')
+      modificandoBtn.addEventListener('click', function(){
+        modificandoBtn.classList.toggle('btnClasse')
+        console.log(modificandoBtn)
+      })
+
+      // 5. Mudando conteudo, atributo e estilos
+      const paragrafo = document.getElementById('paragrafo')
+      const btnAlterador = document.getElementById('btnMudarParagrafo')
+
+      btnAlterador.addEventListener('click', function() {
+        paragrafo.classList.toggle('texto')
+        console.log(paragrafo)
+        paragrafo.innerHTML = "<em>Este paragrafo foi </em><strong>alterado</strong>"
+        paragrafo.style.backgroundColor = "aliceblue"
+        paragrafo.style.color = "blue"
+        paragrafo.style.fontFamily = "Arial"
+      })
+
+    </script>
+  </body>
+</html>

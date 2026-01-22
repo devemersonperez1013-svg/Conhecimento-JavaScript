@@ -1,0 +1,76 @@
+<!-- 1. Alterando o texto com textContent e innerHTML -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando Conteudo</title>
+</head>
+<body>
+    <!-- 1. Modificando o Conteúdo de Texto -->
+    <h1 id="titulo">Bem-vindo</h1>
+    <p id="descricao">Este é um parágrafo</p>
+
+    <!-- 2. Modificando Atributos  -->
+    <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Imagem 1" id="imagem">
+
+    <!-- 3. Modificando Estilos -->
+    <p id="paragrafo">Este é um parágrafo estilizado.</p>
+
+    <!-- 4. Add e Removendo Classes -->
+    <style>
+        .destacado {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <p id="paragrafo1">Este é um outro parágrafo</p>
+
+    <script>
+        // 1. innerHTML and textContent
+        let titulo = document.getElementById('titulo')
+        titulo.textContent = 'Olá, Mundo!'
+
+        let descricao = document.getElementById('descricao')
+        descricao.innerHTML = 'Este é um <strong>parágrafo</strong> modificado'
+        // textContent Modifica o conteúdo de texto do elemento titulo
+        // innerHTML Altera o conteúdo HTML do elemento descricao
+
+        // 2. setAttribute and getAttribute
+        let imagem = document.getElementById('imagem')
+        imagem.setAttribute('src', 'imagem2.jpg')
+        imagem.setAttribute('alt', 'imagem 2')
+        // setAttribute('src', imagem2.jpg) Modifica o src do elemento imagem
+        // setAttribute('alt', imagem 2) Modifica o alt do elemento imagem
+
+        // 3. style
+        let paragrafo = document.getElementById('paragrafo')
+        paragrafo.style.color = 'blue'
+        paragrafo.style.fontSize = '20px'
+        paragrafo.style.backgroundColor = 'yellow'
+        // style.color Modifica a cor do texto
+        // style.fontSize Modifica o tamanho do texto
+        // style.backgroundColor Modifica a cor de fundo do texto para amarelo
+
+        // 4. classList.add, classList.remove e classList.toggle
+        // 4.1 Adicionando
+        let paragrafo1 = document.getElementById('paragrafo1')
+        paragrafo1.classList.add('destacado')       // Adiciona a classe 'destacado'
+        console.log(paragrafo1.className)           // "destacado"
+
+        // 4.2 Removendo
+        paragrafo1.classList.remove('destacado')    // Remove a classe 'destacado'
+        console.log(paragrafo1.className)           // ""
+
+        // 4.3 Toogle
+        paragrafo1.classList.toggle('destacado')    // Adiciona aclasse 'destacado'
+        console.log(paragrafo1.className)           // 'destacado'
+
+        paragrafo.classList.toggle('destacado')     // Remove a classe 'destacado'
+        console.log(paragrafo.className)            // ""
+        // classList.add Adiciona a classe destacado ao elemento
+        // classList.remove Remove a classe destacado ao elemento
+        // classList.toggle Adiciona ou Remove a classe destacado ao elemento (dependendo da sua presença)
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventsListeners</title>
+  </head>
+  <body>
+    <!-- Eventos:
+     Eventos são a base da interatividade. Cada vez que algo acontece no navegador,
+     como um clique do mouse ou uma tecla pressionada, um evento é disparado.
+     Podemos usar JavaScript para "escutar" esses eventos e responder a eles. 
+    -->
+
+    <!-- 1. Adicionando Eventos -->
+    <!-- Para adicionar um EventListener a um elemento, usamos o "addEventListener" -->
+    <button id="meuBotao">Clique em mim!</button>
+    <hr>
+    
+    <!-- 2. Eventos Comuns -->
+    <!-- Os mais comuns são:
+    click : Disparado quando um elemento é clicado.
+    mouseover : Disparado quando o ponteiro do mouse passa sobre um elemento.
+    mouseout : Disparado quando o ponteiro do mouse deixa um elemento.
+    keydown : Disparado quando uma tecla é pressionada.
+    keyup : Disparado quando uma tecla é solta.
+     -->
+    <button id="botaoClique">Clique em mim!</button>
+    <p id="texto">Passe o mouse aqui!</p>
+    <input type="text" id="campoTexto" placeholder="Digite algo..." />
+    <hr>
+
+    <!-- 3. Removendo Event Listeners -->
+    <!-- Usamos o método "removeEventListener" -->
+    <button id="botaoAdicionar">Adicionar Listener</button>
+    <button id="botaoRemover">Remover Listener</button>
+    <button id="meuBotao1">Clique em mim!</button>
+
+    <script>
+      // 1.1
+      let botao = document.getElementById("meuBotao");
+      botao.addEventListener("click", function () {
+        alert("Botão clicado!");
+      });
+      // Adicionamos um EventLister que escuta cliques no botão e executa a função fornecida
+
+      // 2.1
+      let botao1 = document.getElementById("botaoClique");
+      let texto = document.getElementById("texto");
+      let campoTexto = document.getElementById("campoTexto");
+
+      botao1.addEventListener("click", function () {
+        alert("Botão clicado!");
+      });
+
+      texto.addEventListener("mouseover", function () {
+        texto.style.color = "blue";
+      });
+
+      texto.addEventListener("mouseout", function () {
+        texto.style.color = "black";
+      });
+
+      campoTexto.addEventListener("keydown", function (event) {
+        console.log(`Tecla pressionada ${event.key}`);
+      });
+
+      campoTexto.addEventListener("keyup", function (event) {
+        console.log(`Tecla liberada ${event.key}`);
+      });
+      
+      // 3.1
+      let botaoAdicionar = document.getElementById('botaoAdicionar')
+      let botaoRemover = document.getElementById('botaoRemover')
+      let meuBotao = document.getElementById('meuBotao1')
+      
+      function mostrarAlerta() {
+        alert('Botão clicado!')
+      }
+
+      botaoAdicionar.addEventListener('click', function () {
+        // Previnindo as duplicadas
+        meuBotao.removeEventListener('click', mostrarAlerta)
+        meuBotao.addEventListener('click', mostrarAlerta)
+      })
+
+      botaoRemover.addEventListener('click', function () {
+        meuBotao.removeEventListener('click', mostrarAlerta)
+      })
+      // 1. Adiciona o listener mostarAlerta ao botão
+      // 2. Remove o listener mostrarAlerta do botão
+
+    </script>
+  </body>
+</html>
