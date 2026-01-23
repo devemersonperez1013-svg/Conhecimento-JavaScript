@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício Campo Senha</title>
+  </head>
+  <body>
+    <h2>Digite uma nova senha:</h2>
+    <input type="password" id="campoSenha" />
+    <p id="demo"></p>
+
+    <script>
+      let campoSenha = document.getElementById("campoSenha");
+      let pDemo = document.getElementById("demo");
+
+      campoSenha.addEventListener("keyup", function (event) {
+        // Verificando se nào está vazio
+        if (event.target.value.trim() === "") {
+          pDemo.textContent = "Por favor preencha o campo";
+          pDemo.style.color = "red";
+          return;
+        }
+
+        // Se for menor de 6 é senha fraca
+        // Se for maior de 6 é senha Mediana
+        // Se for mais de 10 é senha Forte
+        if (event.target.value.length < 6) {
+          pDemo.innerHTML = "<strong>Senha Fraca</strong>";
+          pDemo.style.color = "red";
+          return;
+        } else if (event.target.value.length <= 10) {
+          pDemo.innerHTML = "<strong>Senha Mediana</strong>";
+          pDemo.style.color = "orange";
+          return;
+        } else {
+          pDemo.innerHTML = "<strong>Senha Forte</strong>";
+          pDemo.style.color = "green";
+          return;
+        }
+      });
+    </script>
+  </body>
+</html>
+          

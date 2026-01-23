@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício Campo Senha</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+        max-width: 400px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        margin: 10px 0;
+      }
+
+      #demo {
+        font-size: 10px;
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      .fraca {
+        background-color: #fff3e0;
+        color: #c62828;
+        border: 2px solid #c62828;
+      }
+      .mediana {
+        background-color: #e8f6e9;
+        color: #ef6c00;
+        border: 2px solid #ef6c00;
+      }
+      .forte {
+        background-color: #fff3e0;
+        color: #2e7d32;
+        border: 2px solid #2e7d32;
+      }
+
+      .vazio {
+        background-color: #f5f5f5;
+        color: #666;
+        border: 2px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Digite uma nova senha:</h2>
+    <input type="password" id="campoSenha" placeholder="Digita sua senha..." />
+    <p id="demo" class="vazio"></p>
+
+    <script>
+      let campoSenha = document.getElementById("campoSenha");
+      let pDemo = document.getElementById("demo");
+
+      campoSenha.addEventListener("input", function (event) {
+        const senha = event.target.value;
+
+        // Limpa classes anteriores
+        pDemo.className = "";
+
+        // Verificando se nào está vazio
+        if (senha.trim() === "") {
+          pDemo.textContent = "Por favor preencha o campo";
+          //   pDemo.style.color = "red";
+          pDemo.classList.add("vazio");
+          return;
+        }
+
+        // Força da senha
+        if (senha.length < 6) {
+          pDemo.innerHTML = "🔴 <strong>Senha Fraca</strong>";
+          //   pDemo.style.color = "red";
+          pDemo.classList.add("fraca");
+          return;
+        } else if (senha.length <= 10) {
+          pDemo.innerHTML = "🟡 <strong>Senha Mediana</strong>";
+          //   pDemo.style.color = "orange";
+          pDemo.classList.add("mediana");
+          return;
+        } else {
+          pDemo.innerHTML = "🟢 <strong>Senha Forte</strong>";
+          //   pDemo.style.color = "green";
+          pDemo.classList.add("forte");
+          return;
+        }
+
+        // Nota:
+        //  - trim() = Remove os espaços em branco no início e no final de uma string
+        //  - value = Pega o valor de um elemento (geralmente input, textarea, select)
+        //  - target = Referência ao elemento que disparou o evento
+        //  - event.target = O elemento DOM específico onde o evento ocorreu
+        //  - event.target.value = Acessa o valor do elemento que disparou o evento
+        //  - Exemplo: input.addEventListener('change', (e) => { console.log(e.target.value) })
+      });
+    </script>
+  </body>
+</html>
