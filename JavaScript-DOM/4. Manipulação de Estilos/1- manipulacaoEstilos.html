@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Estilos</title>
+    <style>
+        /* 1. Alterando Estilos */
+        #paragrafo {
+            color: black;
+            font-size: 16px;
+            background-color: white;
+        }
+
+        /* 2. Add e Removendo Classes */
+        .destacado {
+            color: orange;
+            font-weight: bold;
+        }
+
+        /* 3. Alterando Classes */
+        .enfatizado {
+            color: darkblue;
+            font-weight: bold;
+        }
+
+        /* 4. Definindo Múltiplos Estilos */
+        #texto {
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. -->
+    <p id="paragrafo">Este é um parágrafo estilizado.</p>
+    <button id="botaoEstilos">Alterar Estilos</button>
+    <hr>
+    <!-- 2. -->
+    <p id="paragrafo1">Este é outro parágrafo</p>
+    <button id="botaoAdd">Adicionar Classe</button>
+    <button id="botaoRemover">Remover Classe</button>
+    <hr>
+    <!-- 3. -->
+    <p id="paragrafo2">Este é mais outro parágrafo</p>
+    <button id="botaoToggle">Altenar Classe</button>
+    <hr>
+    <!-- 4. -->
+    <p id="texto">Este é um texto estilizado</p>
+    <button id="botaoEstilos1">Alterar texto</button>
+
+    <script>
+        // 1.
+        let paragrafo = document.getElementById('paragrafo')
+        let btnEstilos = document.getElementById('botaoEstilos')
+
+        btnEstilos.addEventListener('click', function() {
+            paragrafo.style.color = "blue"
+            paragrafo.style.fontSize = "20px"
+            paragrafo.style.backgroundColor = "lightgray"
+        })
+
+        // 2.
+        let paragrafo1 = document.getElementById('paragrafo1')
+        let btnAdd = document.getElementById('botaoAdd')
+        let btnRemover = document.getElementById('botaoRemover')
+
+        btnAdd.addEventListener('click', function() {
+            paragrafo1.classList.add('destacado')
+        })
+        btnRemover.addEventListener('click', function() {
+            paragrafo1.classList.remove('destacado')
+        })
+
+        // 3.
+        let paragrafo2 = document.getElementById('paragrafo2')
+        let btnToggle = document.getElementById('botaoToggle')
+
+        btnToggle.addEventListener('click', function() {
+            paragrafo2.classList.toggle('enfatizado')
+        })
+
+        // 4.
+        let texto = document.getElementById('texto')
+        let btnEstilos1 = document.getElementById('botaoEstilos1')
+
+        btnEstilos1.addEventListener('click', function() {
+            texto.style.cssText = "color: green; font-size: 20px; background-color: lightyellow;"
+        })
+        
+    </script>
+</body>
+</html>

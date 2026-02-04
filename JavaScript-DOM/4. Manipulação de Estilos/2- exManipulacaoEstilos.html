@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercícios</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .destacado {
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .estilo {
+        background-color: aquamarine;
+        color: darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>1. Altere o texto abaixo clicando no botão</h3>
+    <p id="texto">Lorem ipsum dolor sit amet.</p>
+    <button id="mudarTexto">Alterar</button>
+    <hr />
+    <h3>
+      2. Crie event listeners e coloque estilos ao colocar o mouse por cima do
+      texto e também ao sair.
+    </h3>
+    <p id="paragrafo">Lorem ipsum dolor sit amet consectetur.</p>
+    <hr />
+    <h3>
+      3. Altere o estilo do texto clicando no botão, e remove clicando outra vez
+      no botão abaixo.
+    </h3>
+    <p id="texto1">Lorem ipsum dolor sit.</p>
+    <button id="alterarTexto">Alterar</button>
+    <hr />
+    <h3>
+        4. Crie uma função que alterar multiplos estilos de um elemento texto ao clicar no botão, usando "cssText.
+    </h3>
+    <p id="paragrafo1">Lorem ipsum dolor sit amet.</p>
+    <button id="alterarParagrafo">Alterar</button>
+
+    <script>
+      // 1.
+      const texto = document.getElementById("texto");
+      const btnMudarTexto = document.getElementById("mudarTexto");
+
+      btnMudarTexto.addEventListener("click", function () {
+        texto.style.color = "orange";
+        texto.style.backgroundColor = "lightyellow";
+        texto.style.fontSize = "25px";
+      });
+
+      // 2.
+      const paragrafo = document.getElementById("paragrafo");
+
+      paragrafo.addEventListener("mouseover", function () {
+        paragrafo.classList.add("destacado");
+      });
+      paragrafo.addEventListener("mouseout", function () {
+        paragrafo.classList.remove("destacado");
+      });
+
+      // 3.
+      const texto1 = document.getElementById("texto1");
+      const btnAlterarTexto = document.getElementById("alterarTexto");
+
+      btnAlterarTexto.addEventListener("click", function () {
+        texto1.classList.toggle("estilo");
+      });
+
+      const paragrafo1 = document.getElementById("paragrafo1");
+      const btnAlterarParagrafo = document.getElementById("alterarParagrafo");
+
+      btnAlterarParagrafo.addEventListener("click", function () {
+        paragrafo1.style.cssText = `
+            background-color: brown;
+            color: white;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            `;
+      });
+    </script>
+  </body>
+</html>
