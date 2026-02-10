@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navegando DOM</title>
+  </head>
+  <body>
+    <!-- 1. Acessando Elementos Pai -->
+    <div id="pai">
+      <p id="filho">Este é um parágrafo.</p>
+    </div>
+    <hr />
+    <!-- 2. Acessando filhos -->
+    <div id="pai1">
+        <p>Filho 1</p>
+        <p>Filho 2</p>
+        <p>Filho 3</p>
+    </div>
+    <hr>
+    <!-- 3. Acessando Irmãos -->
+    <p id="primeiro">Primeiro parágrafo</p>
+    <p id="segundo">Segundo parágrafo</p>
+    <p id="terceiro">Terceiro parágrafo</p>
+    <hr />
+    <!-- 4. Criando e Removendo Nodes -->
+    <div id="container">
+      <p>Parágrafo existente</p>
+      <button id="adicionar">Adicionar Parágrafo</button>
+      <button id="remover">Remover Parágrafo</button>
+    </div>
+    <script>
+      // 1. parentNode revela o pai do elemento parágrafo
+      let filho = document.getElementById("filho");
+      let pai = filho.parentNode;
+      console.log(pai);
+
+      // 2. children retorna apenas elementos filhos do container "pai1"
+      let pai1 = document.getElementById('pai1')        
+      let filhos = pai.children
+      console.log(filhos)
+
+      // 3. nextElementSibling acessa o seus irmãos adjacentes
+      // previousElementSibling acessa o seus irmão anteriores
+      let primeiro = document.getElementById("primeiro");
+      let segundo = primeiro.nextElementSibling;
+      let terceiro = segundo.nextElementSibling;
+      console.log(segundo);
+      console.log(terceiro);
+
+      // 4. createElement cria um elemento
+      // - appendChild(novoParagrafo) adicionar o novo parágrafo ao div com ID container
+      // - removeChild(ultimoParagrafo) remove o último parágrafo filho do div com ID container
+      let container = document.getElementById('container')
+      let btnAdicionar = document.getElementById('adicionar')
+      let btnRemover = document.getElementById('remover')
+
+      btnAdicionar.addEventListener('click', function() {
+        let novoParagrafo = document.createElement('p')
+        novoParagrafo.textContent = 'Novo Parágrafo'
+        container.appendChild(novoParagrafo)
+      })
+      btnRemover.addEventListener('click', function() {
+        let ultimoParagrafo = container.lastElementChild
+        if (ultimoParagrafo) {
+            container.removeChild(ultimoParagrafo)
+        }
+      })
+
+    </script>
+  </body>
+</html>

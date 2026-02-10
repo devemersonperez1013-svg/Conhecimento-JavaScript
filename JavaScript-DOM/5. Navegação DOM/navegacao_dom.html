@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios</title>
+</head>
+<body>
+    <h2>1. Acessando o elemento pai e pitando</h2>
+    <div id="pai">
+        <p id="fulano1" style="color: white;">Sou o fulano dentro da div</p>
+    </div>
+    <hr>
+    <h2>2. Acessando itens da caixa (resultado no console...)</h2>
+    <div id="caixa">
+        <p>Item 1</p>
+        <p>Item 2</p>
+        <p>Item 3</p>
+    </div>
+    <hr>
+    <h2>3. Pintando o primeiro e o segundo</h2>
+    <p id="funcionario1">Somos funcionarios!</p>
+    <p>Somos funcionarios!</p>
+    <p>Somos funcionarios!</p>
+    <button id="alterar">Alterar estilo</button>
+    <hr>
+    <div id="container">
+        <h2>4. Adicione novo paragrafo abaixo e remove em seguida</h2>
+        <button id="adicione">Add</button>
+        <button id="remove">Remove</button>
+    </div>
+
+    <script>
+        let fulano1 = document.getElementById('fulano1')
+        let pai = fulano1.parentNode
+        
+        pai.style.backgroundColor = "blue"
+
+        let caixa = document.getElementById('caixa')
+        let itens = caixa.children
+        console.log(itens)
+
+        let chefe = document.getElementById('chefe')
+       
+        let primeiro = document.getElementById('funcionario1')
+        let segundo = primeiro.nextElementSibling
+        let terceiro = segundo.previousElementSibling
+        let btnAlterar = document.getElementById('alterar')
+
+        btnAlterar.addEventListener('click', function() {
+            segundo.style.backgroundColor = "yellow"
+            terceiro.style.backgroundColor = "orange"
+        })
+
+        let container = document.getElementById('container')
+        let btnAdicionar = document.getElementById('adicione')
+        let btnRemove = document.getElementById('remove')
+        
+        btnAdicionar.addEventListener('click', function() {
+            let novoElemento = document.createElement('p')
+            novoElemento.textContent = "Parágrafo adicionado"
+            container.appendChild(novoElemento)
+        })
+        btnRemove.addEventListener('click', function() {
+            let removeElemento = container.querySelector('p:last-of-type')
+            if (removeElemento) {
+                container.removeChild(removeElemento)
+            } else {
+                alert("Não tem mais parágrafos para apagar!")
+            }
+        })
+    </script>
+</body>
+</html>
