@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criando e Removendo Elementos</title>
+  </head>
+  <body>
+    <!-- 1. Criando Elementos -->
+    <div id="container">
+      <p>Parágrafo existente</p>
+    </div>
+    <button id="adicionar">Adicionar Parágrafo</button>
+    <hr />
+    <!-- 2. Removendo Elementos -->
+    <div id="box">
+      <p id="paragrafoRemover">Parágrafo que será removido</p>
+    </div>
+    <button id="remover">Remover Parágrafo</button>
+    <hr />
+    <!-- 3. Inserindo Elementos Antes -->
+    <div id="caixa">
+      <p id="primeiro">Primeiro parágrafo</p>
+      <p id="segundo">Segundo parágrafo</p>
+    </div>
+    <button id="inserirAntes">Inserir Parágrafo Antes</button>
+    <hr />
+    <!-- 4. Substituindo Elementos -->
+    <div id="pasta">
+      <p id="paragrafoOriginal">Parágrafo original</p>
+    </div>
+    <button id="substituir">Substituir Parágrafo</button>
+
+    <script>
+      // 1. createElemento cria elemento; appendChild adiciona um novo parágrafo ao div
+      const container = document.getElementById("container");
+      const btnAdicionar = document.getElementById("adicionar");
+
+      btnAdicionar.addEventListener("click", function () {
+        let novoParagrafo = document.createElement("p");
+        novoParagrafo.textContent = "Novo parágrafo criado dinamicamente!";
+        container.appendChild(novoParagrafo);
+      });
+
+      // 2. removeChild remove o parágrafo com ID paragrafoRemover do div
+      let box = document.getElementById("box");
+      let btnRemover = document.getElementById("remover");
+      let paragrafoRemover = document.getElementById("paragrafoRemover");
+
+      btnRemover.addEventListener("click", function () {
+        // if (paragrafoRemover) {
+        //     box.removeChild(paragrafoRemover)
+        // }
+        // Ajustes de funcionamento: verificar se ainda está no DOM
+        if (paragrafoRemover && paragrafoRemover.parentNode) {
+          box.removeChild(paragrafoRemover);
+        }
+        // Podemos usar o remove() para remover de forma simples, sem permissão do pai
+        // ex: elemento.remove()
+      });
+
+      // 3. insertBefore insere antes de um elemento, nesse caso, o parágrafo no div
+      const caixa = document.getElementById("caixa");
+      const btnInserirAntes = document.getElementById("inserirAntes");
+      const segundo = document.getElementById("segundo");
+
+      btnInserirAntes.addEventListener("click", function () {
+        const novoTexto = document.createElement("p");
+        novoTexto.textContent = "Parágrafo inserido antes do segundo!";
+        caixa.insertBefore(novoTexto, segundo);
+      });
+
+      // 4. replaceChild substitui um elemento pelo um novo elemento
+      let pasta = document.getElementById("pasta");
+      let btnSubstituir = document.getElementById("substituir");
+      let paragrafoOriginal = document.getElementById("paragrafoOriginal");
+
+      btnSubstituir.addEventListener("click", function () {
+        // let novoParagrafo1 = document.createElement('p')
+        // novoParagrafo1.textContent = 'Parágrafo substituido!'
+        // pasta.replaceChild(novoParagrafo1, paragrafoOriginal)
+        // ajustes no funcionamento: verificar se ainda existe o paragrafo original
+        if (paragrafoOriginal && paragrafoOriginal.parentNode) {
+          let novoParagrafo1 = document.createElement("p");
+          novoParagrafo1.textContent = "Parágrafo substituido!";
+          pasta.replaceChild(novoParagrafo1, paragrafoOriginal);
+        }
+        // Podemos usar o replaceWith para substituir
+        // ex: elementoAntigo.replaceWith(elementoNovo)
+      });
+    </script>
+  </body>
+</html>

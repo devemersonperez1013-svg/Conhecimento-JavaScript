@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios de Manipulação DOM</title>
+</head>
+<body>
+    <h2>1. Adicione um novo parágrafo clicando no botão</h2>
+    <div id="pai">
+
+    </div>
+    <button id="adicionarNovo">Adicione Parágrafo</button>
+    <hr>
+    <h2>2. Coloque um botão que remova o último elemento do container</h2>
+    <div id="container">
+        <p id="removerIsto">Remove este parágrafo</p>        
+    </div>
+    <button id="remover">Remover Parágrafo</button>
+    <hr>
+    <h2>3. Inserir um novo elemento antres de um elemento específico</h2>
+    <p>Clique no botão abaixo:</p>
+    <div id="box">
+        <p id="primeiroParagrafo">Primeiro</p>
+        <p id="segundoParagrafo">Segundo</p>
+    </div>
+    <button id="inserirAntes">Inserir antes</button>
+    <hr>
+    <h2>4. Implemente uma funcionalidade que substituia um elemento existente por um novo elemento</h2>
+    <p>Clique no botão ao substituir</p>
+    <div id="caixa">
+        <p id="textoExistente">Esse texto existe</p>
+    </div>
+    <button id="substituir">Substitua</button>
+    <hr>
+    <h2>5. Vamos manipular várias ações!</h2>
+    <p><u>Através dos botões abaixo, quero que clique e veja o que acontece:</u></p>
+    <div id="caixote">
+        <!-- primeiro deixamos espaço branco -->
+        <!-- criamos um parágrafo para apagar -->
+        <p id="paragrafoTemporario">Este parágrafo é apagável</p>
+        <!-- criamos uma lista de numeros de 1 a 5 para depois adicionar antes do 2 o 1.5 -->
+        <!-- usando essa mesma lista vamos substituir o 3 com a palavra três -->
+        <p id="pUm">1</p>
+        <p id="pDois">2</p>
+        <p id="pTres">3</p>
+        <p id="pQuatro">4</p>
+        <p id="pCinco">5</p>         
+    </div>
+    <button id="adicionarElmento">Adicione</button>
+    <button id="removeElemento">Remova</button>
+    <button id="AntesDoElemento">Inserir Antes</button>
+    <button id="Substitua">Substitua</button>
+
+    <script>
+        // 1
+        const pai = document.getElementById('pai')
+        const btnAdicionarNovo = document.getElementById('adicionarNovo')
+        
+        btnAdicionarNovo.addEventListener('click', function() {
+            const novoTexto = document.createElement('p')
+            // novoTexto.textContent = 'Este é um novo texto'
+            novoTexto.textContent = `Parágrafo ${pai.children.length + 1}`  // Aparece como: Paragrafo 1, Paragrafo 2...
+            novoTexto.style.color = 'green'    // Mostra um feedback visual para o usuário
+            pai.appendChild(novoTexto)
+        })
+
+        // 2. 
+        const container = document.getElementById('container')
+        const btnRemover = document.getElementById('remover')
+        // const removeParagrafo = document.getElementById('removerIsto')
+
+        btnRemover.addEventListener('click', function() {
+            // if (removeParagrafo && removeParagrafo.parentNode) {
+            //     container.removeChild(removeParagrafo)
+            // }
+            const ultimoElemento = container.lastElementChild
+            if (ultimoElemento) {
+                container.removeChild(ultimoElemento)
+            } else {
+                alert('Não há mais elementos para remover! \nDesabilitaremos o botão!')                
+                btnRemover.disabled = true   // Desabilita o botão
+                btnRemover.textContent = 'Já foi removido!'
+            }
+        })
+
+        // 3. 
+        const box = document.getElementById('box')
+        const primeiro = document.getElementById('primeiroParagrafo')
+        const segundo = document.getElementById('segundoParagrafo')
+        const btnInserirAntes = document.getElementById('inserirAntes')
+        let jaInseriu = false   // variavel que vai limitar mais um click no btn
+        
+        btnInserirAntes.addEventListener('click', function() {
+            // Verificar se já foi inserido, não precisa inserir mais
+            if (!jaInseriu) {
+                const antesDoSegundo = document.createElement('p')
+                antesDoSegundo.innerHTML = "<strong>Parágrafo criado antes do segundo parágrafo!</strong>"
+                box.insertBefore(antesDoSegundo, segundo)
+                jaInseriu = true
+            } else {
+                alert('Já foi inserido o parágrafo! \nDesabilitaremos o botão!')
+                btnInserirAntes.disabled = true   // Desabilita o botão
+                btnInserirAntes.textContent = 'Já foi Inserido!'
+            }
+        })    
+
+        // 4. 
+        const caixa = document.getElementById('caixa')
+        const btnSubstituir = document.getElementById('substituir')
+        const textoExistente = document.getElementById('textoExistente')
+        let jaSubstituiu = false
+
+        btnSubstituir.addEventListener('click', function() {
+            if (!jaSubstituiu && textoExistente && textoExistente.parentNode) {
+                const novoElemento = document.createElement('p')
+                novoElemento.textContent = 'Um novo parágrafo!'
+                novoElemento.style.backgroundColor = "blue"
+                novoElemento.style.color = "white"
+                caixa.replaceChild(novoElemento, textoExistente)
+                jaSubstituiu = true
+            } else {
+                alert('Já foi substituido o parágrafo! \nDesabilitaremos o botão!')
+                btnSubstituir.disabled = true   // Desabilita o botão
+                btnSubstituir.textContent = 'Já foi substituido!'
+            }
+        })
+
+        // Colocar os alertas e a desabilitação dos btns inserir, substituir e remover.
+        const caixote = document.getElementById('caixote')
+        const btnAdicionarElemento = document.getElementById('adicionarElmento')
+        const btnRemoveElemento = document.getElementById('removeElemento')
+        const btnColoqueAntes = document.getElementById('AntesDoElemento')
+        const btnSubstitua = document.getElementById('Substitua')
+        const paragrafoTemporario = document.getElementById('paragrafoTemporario')
+        const pTres = document.getElementById('pTres')
+        const pDois = document.getElementById('pDois')
+        
+        // Variavéis de ação
+        let jaInseriu_2 = false
+        let jaSubstitui_2 = false
+        
+        btnAdicionarElemento.addEventListener('click', function() {
+            // Adicionando updates...
+            const novoParagrafo = document.createElement('p')
+            novoParagrafo.textContent = `Parágrafo ${caixote.children.length + 1}`
+            novoParagrafo.style.backgroundColor = "black"
+            novoParagrafo.style.color = "white"
+            caixote.appendChild(novoParagrafo)
+        })
+        btnRemoveElemento.addEventListener('click', function() {
+            if (paragrafoTemporario && paragrafoTemporario.parentNode) {
+                caixote.removeChild(paragrafoTemporario)
+            } else {
+                alert("Já foi removido o elemento! \nNão é necessario clicar no botão mais")
+                btnRemoveElemento.disabled = true
+                btnRemoveElemento.textContent = "Botão disativado"
+            }
+        })
+        btnColoqueAntes.addEventListener('click', function() {
+            // verificar se ainda existe pDois para antes inserir
+            if (!jaInseriu_2 && pDois && pDois.parentNode) {
+                let novoNumero = document.createElement('p')
+                novoNumero.textContent = '1.5'
+                caixote.insertBefore(novoNumero, pDois)
+                jaInseriu_2 = true
+            } else {
+                alert('O número 1.5 já foi inserido!\nDesabilitaremos o botão')
+                btnColoqueAntes.disabled = true
+                btnColoqueAntes.textContent = "Botão disativado"
+            }
+        })
+        btnSubstitua.addEventListener('click', function() {
+            // Verificar se ainda existe
+            if (!jaSubstitui_2 && pTres && pTres.parentNode) {
+                const emString = document.createElement('p')
+                emString.textContent = 'três'
+                caixote.replaceChild(emString, pTres)
+                jaSubstitui_2 = true
+            } else {
+                alert('O número 3 já foi substituido!\nDesabilitaremos o botão')
+                btnSubstitua.disabled = true
+                btnSubstitua.textContent = "Botão disativado"
+            }
+        })
+
+    </script>
+</body>
+</html>
