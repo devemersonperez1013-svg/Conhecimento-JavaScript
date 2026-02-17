@@ -1,0 +1,117 @@
+/* Body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #27548A
+}
+
+/* main container */
+#container {
+    background-color: #F5EEDC;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #1A3263;
+}
+
+/* Inputs */
+input[type="number"] {
+    border: none;
+    padding: 1rem;
+    width: 90%;
+    border-radius: 1rem;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+input:focus {
+    outline-color: #5a5a5a;
+}
+
+.checkboxes {
+    margin-top: 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+}
+
+.checkboxes div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkboxes input[type="checkbox"] {
+    width: 15px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.checkboxes label {
+    color: #1A3263;
+    font-weight: bold;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+}
+
+.gerar {
+    flex: 1;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.copiar {
+    flex: 1;
+    cursor: pointer;
+    background-color: #3aa856;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.gerar:hover {
+    background-color: #0056b3;
+}
+
+.copiar:hover {
+    background-color: #2c8843;
+}
+
+/* Password */
+#senha {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 12px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Como poderia aumentar o tamanho do checkboxes? me explica como */

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas</title>
+    <link rel="stylesheet" href="geradorSenhas.css">    
+</head>
+<body>
+    <main id="container">
+        <h1>Gerador de Senhas</h1>
+        <input type="number" id="comprimento" placeholder="Comprimento da senha" min="1">
+        <!-- Ex: Senha gerada com sucesso: awbuiiu380 -->            
+        <div id="senha"></div>    
+        <section class="buttons">
+            <button class="gerar" id="gerar">Gerar Senha</button>
+            <button class="copiar" id="copiar">Copiar</button>
+        </section>
+        <!-- Checkbox para L.Maiusculas, L.minusculas, Numeros, Caracteres -->
+        <section class="checkboxes">
+            <div>
+                <input type="checkbox" id="lMaiusculas">
+                <label>Letras Maiusculas</label>
+            </div>
+            <div>
+                <input type="checkbox" id="lMinusculas">
+                <label>Letras Minusculas</label>
+            </div>
+            <div>
+                <input type="checkbox" id="numeros">
+                <label>Números</label>
+            </div>
+            <div>
+                <input type="checkbox" id="simbolos">
+                <label>Símbolos</label>
+            </div>
+        </section>
+    </main>
+    <script src="appGeradorSenhas.js"></script>
+</body>
+</html>
